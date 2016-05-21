@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+body
+{
+    font-family: 'Lato', sans-serif;
+}
+.pacifico
+{
+    /*Al tener ya fonst con este clase indico que partes de mi pag deseo que posean este estilo si no se pudiese pondra cursiva*/
+    font-family: 'Pacifico', cursive;
+}
+
+.verde
+{
+    color: #00887C;
+}
