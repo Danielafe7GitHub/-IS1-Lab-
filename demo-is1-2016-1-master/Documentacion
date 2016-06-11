@@ -1,0 +1,31 @@
+Se trabajó con dos complementoS
+1.Poster
+que termine agregar alumnos , como si lo hicieras manualemnte 
+como en el archivo index.html , donde agrega a Ipoo2.
+Pues aquí es mas sensillo.
+Habre el complemento en .Herramienas , y en el path en blanco agregas 
+algo como esto:
+{"codigo":"03","nombre":"DiscretasIII"}
+antes de hacer clic en post 
+agregas en la parte superior en Content type: application/json
+y en URL : http://localhost:8080/cursos o la talab donde desees hacerlo
+luego haces post y para ver lo insetado
+revisas en tu posgrest o haces clic en get
+
+
+Para insertar en Alumno por ejemplo {"apellidoPaterno":"Lord","apellidoMaterno":"Beither","nombres":"Dark","promedio":"13"}
+
+
+private String id_matricula;	
+	private String codigo_alumno;	
+	private String codigo_curso;
+	private String nombre_alumno;
+	private String curso;
+	private String semestre;
+{"codigo_alumno":"152","codigo_curso":"02","nombre_alumno":"Dark","curso":"IPOO II","sem
+
+
+
+
+$http.post("matriculas", '{"id": "codigo", "nombre_alumno": "LAmar","nombre_curso":"IPOO II"}').success( function(response) {
+             });

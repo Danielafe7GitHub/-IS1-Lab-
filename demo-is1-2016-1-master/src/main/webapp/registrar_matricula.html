@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="main.css">
+	    
+	    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	    <link href='https://fonts.googleapis.com/css?family=Lato:400,900,300' rel='stylesheet' type='text/css'>
+	    
+      <title>Registro</title>
+	
+      <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	    <style type="text/css">
+				#caja  { width: 60%; float:right; border: 1px solid black; }
+				</style>
+				
+      <script type="text/javascript">
+         function alumnoController($scope,$http) {
+                    		
+             
+             datos = document.getElementById("caja")
+             var nombre=document.rellenar.nombre.value;
+             var ide=document.rellenar.ide.value ;
+             var cursito=document.rellenar.curso.value ;
+             
+             $http.get("matriculas").success( function(response) {
+                 $scope.matriculas = response;
+              });
+             
+             
+             $http.post("matriculas", {'id':ide,'nombre_alumno':nombre,'nombre_curso':cursito}).success( function(response) {
+             });
+             
+                                    
+            
+          
+             
+         }
+      </script>
+      
+      
+
+      
+      
+   </head>
+   <body>
+    
+
+      <div ng-app="" ng-controller="alumnoController">
+      	
+         <h2 class="pacifico verde text-center">   Matriculas  </h2>
+         <table class="table table-striped">
+            <tr>
+               <th>Nombre Alumno</th>
+               <th>Nombre Curso</th>
+            </tr>
+            <tr ng-repeat = "matricula in matriculas">
+               <td>{{ matricula.nombre_alumno }}</td>
+               <td>{{ matricula.nombre_curso }}</td>
+            </tr>
+         </table>          
+         
+         
+      </div>
+      
+  
+ <h1> Acceso a campos de texto</h1>
+
+<form name="rellenar" action="#" >
+<h2>Escribe tu datos:</h2>
+<p> Escribe el nombre : <input name="nombre" type="text"/> </p> 
+<p>Escribe tu id: <input name="ide" type="text" /></p>
+<p>Escribe el curso</p>
+<p><textarea name="curso"></textarea></p>
+
+</form>
+
+<div id="botones">
+ <input type="button" value="refrescar" onclick="javascript:window.location.reload();"/>
+</div> 
+       </body>
+   
+   
+   
+   
+      
+</html>
