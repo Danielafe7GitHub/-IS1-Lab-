@@ -1,0 +1,27 @@
+@Entity
+public class Artista {
+	@Id
+	@SequenceGenerator(name = "Artista_ID_GENERATOR", sequenceName = "Artista_ID_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Artista_ID_GENERATOR")
+	public Integer Id_artista;
+	public String nombre_artista;
+	public List<cancion> canciones_artista;
+	public List<album> albums_artista;
+
+
+	public Artista() {
+	}
+
+	public Artista(String nombre_artista, List<cancion> canciones_artista,List<album> albums_artista) {
+		this.nombre_artista = nombre_artista;		
+		this.canciones_artista = canciones_artista;
+		this.albums_artista = albums_artista;
+		
+	}
+}
+
+
+
+public interface ArtistaRepositorio extends CrudRepository<Artista, Integer> {
+	List<Artista> findAll();
+}
